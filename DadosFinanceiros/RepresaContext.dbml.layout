@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.625, 11.25" name="RepresaContext">
+  <DataContextMoniker Name="/RepresaContextDataContext" />
+  <nestedChildShapes>
+    <classShape Id="98f5359a-f2e3-4b01-84f4-e8bc19193ad7" absoluteBounds="6.75, 0.75, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/RepresaContextDataContext/Atendente" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8fcd25fc-b2ec-47a7-ac62-f384fe03bb09" absoluteBounds="6.765, 1.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b427a693-56ab-4fef-86be-2e8c2fee1368" absoluteBounds="6.25, 3, 2, 2.347801106770834">
+      <DataClassMoniker Name="/RepresaContextDataContext/Parcela" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ddc90947-5e7d-4f72-b2be-701e78bb958f" absoluteBounds="6.265, 3.46, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="00e00127-1a37-477a-8268-837cf6db064b" absoluteBounds="6.75, 6.75, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/RepresaContextDataContext/Banco" />
+      <nestedChildShapes>
+        <elementListCompartment Id="83852656-5524-448e-8e34-0b4620621486" absoluteBounds="6.765, 7.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="812dddea-c5c4-40b8-9184-7fdc82f2c9fd" absoluteBounds="0.75, 1.125, 2, 6.0015283203124987">
+      <DataClassMoniker Name="/RepresaContextDataContext/Cliente" />
+      <nestedChildShapes>
+        <elementListCompartment Id="add59211-b9c5-476d-97d3-0d6acff807b9" absoluteBounds="0.765, 1.585, 1.9700000000000002, 5.4415283203125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0a606e59-20ea-488f-a6a2-5aeb209052dc" absoluteBounds="3.5, 1.875, 2, 4.4631168619791666">
+      <DataClassMoniker Name="/RepresaContextDataContext/Emprestimo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="08eff2fe-aab7-4b5c-b311-1ce1eab844d3" absoluteBounds="3.515, 2.335, 1.9700000000000002, 3.903116861979167" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1cadd0cd-1ac8-472e-bd52-e4b939fef19c" absoluteBounds="0.75, 8.75, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/RepresaContextDataContext/FPagamento" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f9d87ac4-aa60-494a-956a-aaf52920d534" absoluteBounds="0.765, 9.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 4.17390055338542); (6.25 : 4.17390055338542)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/RepresaContextDataContext/Emprestimo/Emprestimo_Parcela" />
+      <nodes>
+        <classShapeMoniker Id="0a606e59-20ea-488f-a6a2-5aeb209052dc" />
+        <classShapeMoniker Id="b427a693-56ab-4fef-86be-2e8c2fee1368" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 4.10655843098958); (3.5 : 4.10655843098958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/RepresaContextDataContext/Cliente/Cliente_Emprestimo" />
+      <nodes>
+        <classShapeMoniker Id="812dddea-c5c4-40b8-9184-7fdc82f2c9fd" />
+        <classShapeMoniker Id="0a606e59-20ea-488f-a6a2-5aeb209052dc" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="115c3102-99de-4a55-ad1b-e6a02704d115" absoluteBounds="3.375, 7.75, 2, 3.3093082682291666">
+      <DataClassMoniker Name="/RepresaContextDataContext/View_AplicacaoCliente" />
+      <nestedChildShapes>
+        <elementListCompartment Id="30c1f815-a43b-4b8c-877a-79324cf19a50" absoluteBounds="3.39, 8.21, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9bc6e439-40f5-435e-93b2-8c713fa79d19" absoluteBounds="6.375, 8.75, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/RepresaContextDataContext/View_Refinanciar" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fc4f9dd1-dd75-4213-bdf7-9d145bd061d4" absoluteBounds="6.39, 9.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1b4b1dac-653f-442b-8b30-f3c7e3792712" absoluteBounds="9.375, 0.75, 2, 3.6939111328124992">
+      <DataClassMoniker Name="/RepresaContextDataContext/View_ClienteEmprestimo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f841c3f1-3d0d-45c2-b269-d3ed5d55a4b5" absoluteBounds="9.39, 1.21, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9ce46311-ba0c-460f-9422-cc285a01c3a5" absoluteBounds="9.375, 5.75, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/RepresaContextDataContext/View_Recebimento" />
+      <nestedChildShapes>
+        <elementListCompartment Id="94528257-11b9-4ced-9f93-329b580c6702" absoluteBounds="9.39, 6.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

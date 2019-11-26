@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Represa02" Class="RepresaContextDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=G:\Aplicativo\Banco\Represa02.mdf;Integrated Security=True;Connect Timeout=30" SettingsObjectName="DadosFinanceiros.Properties.Settings" SettingsPropertyName="Represa02ConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Atendente" Member="Atendente">
+    <Type Name="Atendente">
+      <Column Name="idAtendende" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nomeAtendente" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Parcela" Member="Parcela">
+    <Type Name="Parcela">
+      <Column Name="idParcela" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idEmprestimo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="vencimento" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="valorParcela" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="paga" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="novadata" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="taxaParcela" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="novovalor" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Association Name="Emprestimo_Parcela" Member="Emprestimo" ThisKey="idEmprestimo" OtherKey="idEmprestimo" Type="Emprestimo" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Banco" Member="Banco">
+    <Type Name="Banco">
+      <Column Name="idBanco" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nomeBanco" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Cliente" Member="Cliente">
+    <Type Name="Cliente">
+      <Column Name="idCliente" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="codCliente" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="dataCadastro" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="nomeCliente" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="dataNascimento" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="cpf" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="rg" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="telResidencial" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="telCelularzap" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="telCelular2" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="enderecoResidencial" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="facebook" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="instagran" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="empresa" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="cargo" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="salarioLiquido" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="dataEmpresa" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="telComercial1" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="telComercial2" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="telComercial3" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="enderecoEmpresarial" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="referencia1" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="referencia2" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="referencia3" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="observacao" Type="System.String" DbType="NVarChar(800)" CanBeNull="true" />
+      <Column Name="statusCadastro" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Cliente_Emprestimo" Member="Emprestimo" ThisKey="idCliente" OtherKey="idCliente" Type="Emprestimo" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Emprestimo" Member="Emprestimo">
+    <Type Name="Emprestimo">
+      <Column Name="idEmprestimo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idCliente" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="nomeAtendente" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="statusEmprestimo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="dataCadastro" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="valor" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="taxa" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="valorTotal" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="qtdParcela" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="valorParcela" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="primeiraParcela" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ultimaParcela" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="percentComissao" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="valorComissao" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="refinanciamento" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="complemento" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="banco" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="formaPagamento" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="observacao" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Association Name="Emprestimo_Parcela" Member="Parcela" ThisKey="idEmprestimo" OtherKey="idEmprestimo" Type="Parcela" />
+      <Association Name="Cliente_Emprestimo" Member="Cliente" ThisKey="idCliente" OtherKey="idCliente" Type="Cliente" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FPagamento" Member="FPagamento">
+    <Type Name="FPagamento">
+      <Column Name="idPagamento" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nomePagamento" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.View_AplicacaoCliente" Member="View_AplicacaoCliente">
+    <Type Name="View_AplicacaoCliente">
+      <Column Name="idCliente" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="statusEmprestimo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="codCliente" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="dataCadastro" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="valor" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="taxa" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="valorTotal" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="qtdParcela" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="valorParcela" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="vencimento" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="refinanciamento" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="complemento" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="observacao" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.View_Refinanciar" Member="View_Refinanciar">
+    <Type Name="View_Refinanciar">
+      <Column Name="idCliente" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="codCliente" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="vencimento" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="nomeCliente" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="telCelularzap" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="valorParcela" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="complemento" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.View_ClienteEmprestimo" Member="View_ClienteEmprestimo">
+    <Type Name="View_ClienteEmprestimo">
+      <Column Name="idEmprestimo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="codCliente" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="statusEmprestimo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="dataCadastro" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="valor" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="taxa" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="valorTotal" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="nomeAtendente" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="percentComissao" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="valorComissao" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="banco" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="formaPagamento" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="refinanciamento" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="complemento" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="observacao" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.View_Recebimento" Member="View_Recebimento">
+    <Type Name="View_Recebimento">
+      <Column Name="idCliente" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="codCliente" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="nomeCliente" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="vencimento" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="valorParcela" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="paga" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>

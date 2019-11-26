@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="DadosFinanceiros.Controles.ClientePesquisa"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+             xmlns:local="clr-namespace:DadosFinanceiros.Controles"
+             mc:Ignorable="d" 
+             Height="590" Width="1100" Loaded="UserControl_Loaded" HorizontalAlignment="Left">
+    
+    <StackPanel Orientation="Vertical">
+
+
+        <DataGrid x:Name="clienteDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding }" 
+              RowDetailsVisibilityMode="VisibleWhenSelected" Width="auto" Height="540" Margin="30 20 0 20"  MouseDoubleClick="clienteDataGrid_MouseDoubleClick"
+              HorizontalAlignment="Left" VerticalAlignment="Top" AlternationCount="2" RowBackground="LightYellow" AlternatingRowBackground="LightBlue"
+              ScrollViewer.VerticalScrollBarVisibility="Auto" IsReadOnly="False" FontSize="16" >
+
+            <DataGrid.Resources>
+                <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Foreground" Value="Black" />
+                    <Setter Property="FontWeight" Value="Bold" />
+                    <Setter Property="FontSize" Value="16" />
+                </Style>
+            </DataGrid.Resources>
+
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="idClienteColumn"  Binding="{Binding idCliente}" Header="Id Cliente" IsReadOnly="True" Width="0" />
+                <DataGridTextColumn x:Name="codClienteColumn" Binding="{Binding codCliente}" Header="Cod Cliente" Width="140" IsReadOnly="True" />
+                <DataGridTextColumn x:Name="nomeClienteColumn" Binding="{Binding nomeCliente}" Header="Nome" Width="350" IsReadOnly="True" />
+                <DataGridTextColumn x:Name="telResidencialColumn" Binding="{Binding telResidencial}" Header="Tel Residencial" Width="150" IsReadOnly="True" />
+                <DataGridTextColumn x:Name="telCelularzapColumn" Binding="{Binding telCelularzap}" Header="Tel WhatsApp" Width="180" IsReadOnly="True" />
+                <DataGridTextColumn x:Name="telCelular2Column" Binding="{Binding telCelular2}" Header="Celular" Width="180" IsReadOnly="True" />
+
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+    </StackPanel>
+</UserControl>
